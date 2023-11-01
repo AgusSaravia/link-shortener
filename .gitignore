@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-.link-shortener-venv/
+.link.shortener-venv/
 
-=======
-.venv/
-link-shortener-venv
->>>>>>> 05e6253 (fixed typo)
