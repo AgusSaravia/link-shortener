@@ -2,8 +2,13 @@ import sqlite3
 from hashids import Hashids
 from flask import Flask,render_template,request,flash, redirect,url_for
 import secrets
+from dotenv import load_dotenv
+
+load_dotenv()
 
 salt = secrets.token_hex(16)
+
+
 def get_db_connection():
     conn = sqlite3.connect('database.db')
     conn.row_factory = sqlite3.Row
@@ -27,14 +32,14 @@ def index():
         if not url:
             flash('The URL is required!')
             return redirect(url_for('index'))
-
+        
         url_data = conn.execute('INSERT INTO urls (original_url) VALUES (?)',
                                 (url,))
         conn.commit()
         conn.close()
 
         url_id = url_data.lastrowid
-        print(url)
+        
         hashid = hashids.encode(url_id)
         short_url = request.host_url + hashid
 
