@@ -70,15 +70,17 @@ def url_redirect(id):
 
 @app.route('/stats')
 def stats():
-    conn = get_db_connection
-    db_urls= conn.execute('SELECT id, created, original_url, clicks FROM urls').fetchall()
+    conn = get_db_connection()
+    db_urls= conn.execute('SELECT id, created, original_url, clicks FROM urls '
+                          ).fetchall()
+    
     conn.close()
 
     urls = []
-    for url in db_urls:
-        url=dict(url)
-        url['short_url'] = request.host_url  + hashids.encode(url['id'])
-        url.append.url
+    for db_url in db_urls:
+        url_data= dict(db_url)
+        url_data['short_url'] = request.host_url  + hashids.encode(url_data['id'])
+        urls.append(url_data)
     return render_template('stats.html', urls=urls)
 
 if __name__ == "__main__":
