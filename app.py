@@ -75,7 +75,7 @@ def stats():
     conn.close()
 
     urls = []
-    for url in db_urls
+    for url in db_urls:
         url=dict(url)
         url['short_url'] = request.host_url  + hashids.encode(url['id'])
         url.append.url
