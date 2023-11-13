@@ -4,8 +4,6 @@ Link Shortener es un servicio simple para acortar URLs largas y compartirlas de 
 
 ## Características a implementar
 
-- **Acorta URLs:** Convierte enlaces largos en versiones más cortas y fáciles de compartir.
-- **Estadísticas:** Realiza un seguimiento del número de clics en tus enlaces acortados.
 - **Personalización:** Opción para personalizar la parte final de la URL acortada.
 - **API:** Integra el servicio de acortamiento de enlaces en tus propias aplicaciones a través de nuestra API.
 
